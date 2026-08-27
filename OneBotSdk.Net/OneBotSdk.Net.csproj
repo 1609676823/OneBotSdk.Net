@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net9.0;net8.0;net7.0;net6.0;net5.0;net481;net48;net472;net471;net47;net462;netstandard2.1;netstandard2.0</TargetFrameworks>
+    <AssemblyName>OneBotSdk.Net</AssemblyName>
+    <RootNamespace>OneBotSdk.Net</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Deterministic>true</Deterministic>
+
+    <PackageId>OneBotSdk.Net</PackageId>
+    <Version>0.1.1</Version>
+    <Authors>OneBotSdk.Net contributors</Authors>
+    <Copyright>Copyright (c) 2026 OneBotSdk.Net contributors</Copyright>
+    <Description>A cross-target .NET SDK for OneBot 10, OneBot 11, and the OneBot 12 candidate specification.</Description>
+    <PackageTags>onebot;onebot10;onebot11;onebot12;bot;sdk</PackageTags>
+    <PackageProjectUrl>https://gitee.com/lnsyzjw/one-bot-sdk.-net</PackageProjectUrl>
+    <RepositoryUrl>https://gitee.com/lnsyzjw/one-bot-sdk.-net.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <!-- Current compatibility assets supply JsonNode where no suitable shared-framework implementation exists. -->
+  <!-- 在没有合适共享框架实现的目标上，通过当前兼容资产提供 JsonNode。 -->
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework' Or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
+    <PackageReference Include="System.Text.Json" Version="10.0.11" />
+  </ItemGroup>
+
+  <!-- .NET 5 requires the last System.Text.Json line that officially supports its runtime generation. -->
+  <!-- .NET 5 使用最后一条正式支持其运行时世代的 System.Text.Json 版本线。 -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="System.Text.Json" Version="6.0.11" />
+  </ItemGroup>
+
+  <!-- Reference assemblies make all .NET Framework builds reproducible without local developer packs. -->
+  <!-- 引用程序集使所有 .NET Framework 目标无需本机开发者包也能稳定构建。 -->
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" Link="README.md" />
+    <None Include="..\README.zh-CN.md" Pack="true" PackagePath="\" Link="README.zh-CN.md" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="\" Link="LICENSE" />
+    <None Include="..\docs\*.md" Pack="true" PackagePath="docs\" />
+  </ItemGroup>
+
+</Project>

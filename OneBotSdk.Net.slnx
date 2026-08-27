@@ -1,0 +1,19 @@
+<Solution>
+  <Project Path="OneBotSdk.Net/OneBotSdk.Net.csproj" />
+  <Folder Name="/解决方案项/">
+    <File Path="README.md" />
+    <File Path="README.zh-CN.md" />
+  </Folder>
+  <Project Path="OneBotSdk.Net.Tests/OneBotSdk.Net.Tests.csproj" />
+  <Folder Name="/samples/">
+    <Project Path="samples/OneBotSdk.Net.ObservableExample/OneBotSdk.Net.ObservableExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.EventHandlerExample/OneBotSdk.Net.EventHandlerExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.HttpActionExample/OneBotSdk.Net.HttpActionExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.V10.ObservableExample/OneBotSdk.Net.V10.ObservableExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.V10.EventHandlerExample/OneBotSdk.Net.V10.EventHandlerExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.V10.HttpActionExample/OneBotSdk.Net.V10.HttpActionExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.V12.ObservableExample/OneBotSdk.Net.V12.ObservableExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.V12.EventHandlerExample/OneBotSdk.Net.V12.EventHandlerExample.csproj" />
+    <Project Path="samples/OneBotSdk.Net.V12.HttpActionExample/OneBotSdk.Net.V12.HttpActionExample.csproj" />
+  </Folder>
+</Solution>

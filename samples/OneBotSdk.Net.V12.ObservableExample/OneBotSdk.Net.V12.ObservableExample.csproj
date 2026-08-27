@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net10.0;net9.0;net8.0;net7.0;net6.0;net5.0;net481;net48;net472;net471;net47;net462</TargetFrameworks>
+    <AssemblyName>OneBotSdk.Net.V12.ObservableExample</AssemblyName>
+    <RootNamespace>OneBotSdk.Net.V12.ObservableExample</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <!-- EOL targets are intentional compatibility samples and are documented as such. -->
+    <!-- 已结束支持的目标是有意保留的兼容示例，并已在文档中明确说明。 -->
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+  </PropertyGroup>
+
+  <!-- Older sample targets may execute on an installed newer compatible runtime. -->
+  <!-- 较旧的示例目标可以在本机已安装的更高兼容运行时上执行。 -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net5.0' Or '$(TargetFramework)' == 'net6.0' Or '$(TargetFramework)' == 'net7.0' Or '$(TargetFramework)' == 'net9.0'">
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+
+  <!-- Reference assemblies keep every .NET Framework sample target reproducible. -->
+  <!-- 引用程序集使每个 .NET Framework 示例目标都能稳定复现构建。 -->
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OneBotSdk.Net\OneBotSdk.Net.csproj" />
+  </ItemGroup>
+
+</Project>
+
